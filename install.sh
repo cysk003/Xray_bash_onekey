@@ -34,7 +34,7 @@ OK="${Green}[OK]${Font}"
 Error="${RedW}[错误]${Font}"
 Warning="${RedW}[警告]${Font}"
 
-shell_version="1.9.3.5"
+shell_version="1.9.3.6"
 shell_mode="未安装"
 tls_mode="None"
 ws_grpc_mode="None"
@@ -206,7 +206,7 @@ dependency_install() {
         judge "编译工具包 安装"
     fi
     if [[ "${ID}" == "centos" ]]; then
-        pkg_install "epel-release,iputils,pcre,pcre-devel,zlib-devel"
+        pkg_install "epel-release,iputils,pcre,pcre-devel,zlib-devel,perl-IPC-Cmd"
     else
         pkg_install "iputils-ping,libpcre3,libpcre3-dev,zlib1g-dev"
     fi
