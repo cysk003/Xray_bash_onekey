@@ -34,7 +34,7 @@ OK="${Green}[OK]${Font}"
 Error="${RedW}[错误]${Font}"
 Warning="${RedW}[警告]${Font}"
 
-shell_version="1.9.3.6"
+shell_version="1.9.3.7"
 shell_mode="未安装"
 tls_mode="None"
 ws_grpc_mode="None"
@@ -2935,9 +2935,9 @@ idleleo_commend() {
             fi
             if [[ -f ${xray_qr_config_file} ]]; then
                 if [[ $(info_extraction nginx_version) == null ]] || [[ ! -f "${nginx_dir}/sbin/nginx" ]]; then
-                    nginx_need_update="${Red}[未安装]${Font}"
+                    nginx_need_update="${Green}[未安装]${Font}"
                 elif [[ ${nginx_version} != $(info_extraction nginx_version) ]] || [[ ${openssl_version} != $(info_extraction openssl_version) ]] || [[ ${jemalloc_version} != $(info_extraction jemalloc_version) ]]; then
-                    nginx_need_update="${Red}[有新版!]${Font}"
+                    nginx_need_update="${Green}[有新版]${Font}"
                 else
                     nginx_need_update="${Green}[最新版]${Font}"
                 fi
@@ -2958,7 +2958,7 @@ idleleo_commend() {
                     xray_need_update="${Red}[未安装]${Font}"
                 fi
             else
-                nginx_need_update="${Red}[未安装]${Font}"
+                nginx_need_update="${Green}[未安装]${Font}"
                 xray_need_update="${Red}[未安装]${Font}"
             fi
         fi
@@ -3072,6 +3072,8 @@ menu() {
         bash idleleo
         ;;
     2)
+        echo -e "\n${Red}[不建议]${Font} 频繁升级 Nginx, 请确认 Nginx 有升级的必要! "
+        timeout "开始升级!"
         nginx_update
         timeout "清空屏幕!"
         clear
