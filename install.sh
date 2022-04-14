@@ -34,7 +34,7 @@ OK="${Green}[OK]${Font}"
 Error="${RedW}[错误]${Font}"
 Warning="${RedW}[警告]${Font}"
 
-shell_version="1.9.3.7"
+shell_version="1.9.3.8"
 shell_mode="未安装"
 tls_mode="None"
 ws_grpc_mode="None"
@@ -2999,6 +2999,13 @@ check_xray_local_connect() {
     fi
 }
 
+check_online_version_connect() {
+    if [[ $(curl_local_connect "www.idleleo.com" "api/xray_shell_versions") != "200" ]] {
+        echo -e "${Error} ${RedBG} 无法检测所需依赖的在线版本, 请稍后再试! ${Font}"
+        exit 0
+    }
+}
+
 menu() {
 
     echo -e "\nXray 安装管理脚本 ${Red}[${shell_version}]${Font} ${shell_emoji}"
@@ -3260,6 +3267,7 @@ menu() {
 }
 
 check_file_integrity
+check_online_version_connect
 read_version
 judge_mode
 idleleo_commend
