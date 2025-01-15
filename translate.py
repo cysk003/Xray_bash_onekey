@@ -24,16 +24,20 @@ def translate_po_file(input_file, output_file, target_lang):
     with open(input_file, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    pattern = r'msgid "(.*?)"\nmsgstr ""'
+    # 更新正则表达式以匹配未翻译的msgstr
+    pattern = r'msgid "(.*?)"\nmsgstr "(.*?)"'
     matches = re.finditer(pattern, content)
     
     updated = False
     for match in matches:
-        chinese_text = match.group(1)
-        if chinese_text and any('\u4e00' <= char <= '\u9fff' for char in chinese_text):
-            if chinese_text in translations:
-                translated_text = translations[chinese_text]
-                print(f"Using cached translation [{target_lang}]: {chinese_text} -> {translated_text}")
+        msgid_text = match.group(1)
+        msgstr_text = match.group(2)
+        
+        # 仅翻译未翻译的msgstr
+        if msgstr_text == "":
+            if msgid_text in translations:
+                translated_text = translations[msgid_text]
+                print(f"Using cached translation [{target_lang}]: {msgid_text} -> {translated_text}")
             else:
                 try:
                     # 增加重试机制
@@ -41,25 +45,26 @@ def translate_po_file(input_file, output_file, target_lang):
                     for attempt in range(max_retries):
                         try:
                             time.sleep(2)  # 增加延迟以避免请求过快
-                            translation = translator.translate(chinese_text, src='zh-cn', dest=target_lang)
+                            # 确保源语言和目标语言设置正确
+                            translation = translator.translate(msgid_text, src='auto', dest=target_lang)
                             translated_text = translation.text
-                            translations[chinese_text] = translated_text
+                            translations[msgid_text] = translated_text
                             updated = True
-                            print(f"New translation [{target_lang}]: {chinese_text} -> {translated_text}")
+                            print(f"New translation [{target_lang}]: {msgid_text} -> {translated_text}")
                             break
                         except Exception as e:
                             if attempt == max_retries - 1:
                                 raise e
-                            print(f"Retry {attempt + 1}/{max_retries} for: {chinese_text}")
+                            print(f"Retry {attempt + 1}/{max_retries} for: {msgid_text}")
                             time.sleep(5)  # 重试前等待更长时间
                 except Exception as e:
-                    print(f"Translation failed for: {chinese_text}")
+                    print(f"Translation failed for: {msgid_text}")
                     print(f"Error: {e}")
                     continue
                 
             content = content.replace(
-                f'msgid "{chinese_text}"\nmsgstr ""',
-                f'msgid "{chinese_text}"\nmsgstr "{translated_text}"'
+                f'msgid "{msgid_text}"\nmsgstr "{msgstr_text}"',
+                f'msgid "{msgid_text}"\nmsgstr "{translated_text}"'
             )
     
     if updated:

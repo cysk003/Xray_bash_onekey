@@ -47,12 +47,11 @@ jobs:
           mkdir -p po
           mkdir -p languages/{en,fa,ru,zh_CN}/LC_MESSAGES
       
-      - name: Extract strings from all scripts
+      - name: Extract strings from specified scripts
         run: |
-          touch po/POTFILES.in
-          for script in install.sh auto_update.sh fail2ban_manager.sh file_manager.sh; do
-            echo "$script" >> po/POTFILES.in
-          done
+          echo "install.sh" > po/POTFILES.in
+          echo "fail2ban_manager.sh" >> po/POTFILES.in
+          echo "file_manager.sh" >> po/POTFILES.in
           
           xgettext \
             --files-from=po/POTFILES.in \
@@ -78,13 +77,6 @@ jobs:
       - name: Auto translate
         run: python3 translate.py
       
-      - name: Save translation cache
-        if: always()
-        uses: actions/cache@v3
-        with:
-          path: po/cache_*.json
-          key: ${{ runner.os }}-translations-${{ hashFiles('po/*.po') }}
-      
       - name: Compile MO files
         run: |
           for lang in zh_CN en fa ru; do
@@ -97,6 +89,13 @@ jobs:
           for lang in zh_CN en fa ru; do
             echo "$TIMESTAMP" > languages/${lang}/LC_MESSAGES/version
           done
+      
+      - name: Save translation cache
+        if: always()
+        uses: actions/cache@v3
+        with:
+          path: po/cache_*.json
+          key: ${{ runner.os }}-translations-${{ hashFiles('po/*.po') }}
       
       - name: Pull changes
         run: |
