@@ -497,5 +497,20 @@
   "删除一个已存在的": "Delete one existing",
   "Nginx 重启失败 请检查配置文件是否有误": "Nginx's restart failed, please check whether the configuration file is wrong",
   "Nginx 重启成功": "Nginx restarted success",
-  "请选择一个选项:": "Please select an option:"
+  "请选择一个选项:": "Please select an option:",
+  "警告": "warn",
+  "日志文件归档失败": "Log file archiving failed",
+  "清空日志文件失败": "Clear the log file failed",
+  "当前系统为": "The current system is",
+  "用户名": "username",
+  "即将添加用户, 一次仅能添加一个": "The user is about to be added, only one can be added at a time",
+  "设置 Xray 流量统计": "Set xray traffic statistics",
+  "已卸载 Xray": "Uninstalled XRAY",
+  "ヾ(￣▽￣) 拜拜~": "ヾ (￣ ▽ ￣) worship ~",
+  "存在新版本, 但版本跨度较大, 可能存在不兼容情况, 是否更新": "There are new versions, but the version span is large, and there may be incompatibility. Whether it is updated",
+  "设置 Fail2ban 防暴力破解": "Set Fail2BAN anti -violence cracking",
+  "错误信息": "error message",
+  "Jail": "Jail",
+  "跳过更新": "Skip the update",
+  "用法:": "usage:"
 }
