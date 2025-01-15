@@ -3,6 +3,7 @@ import time
 import json
 import os
 from googletrans import Translator, LANGUAGES
+from langdetect import detect
 
 def load_translation_cache(cache_file):
     if os.path.exists(cache_file):
@@ -33,8 +34,17 @@ def translate_po_file(input_file, output_file, target_lang):
         msgid_text = match.group(1)
         msgstr_text = match.group(2)
         
-        # 仅翻译未翻译的msgstr
-        if msgstr_text == "":
+        # 如果msgid被删除，清空msgstr
+        if not msgid_text:
+            content = content.replace(
+                f'msgid "{msgid_text}"\nmsgstr "{msgstr_text}"',
+                f'msgid "{msgid_text}"\nmsgstr ""'
+            )
+            updated = True
+            continue
+        
+        # 检查msgstr是否是目标语言
+        if msgstr_text == "" or detect(msgstr_text) != target_lang:
             if msgid_text in translations:
                 translated_text = translations[msgid_text]
                 print(f"Using cached translation [{target_lang}]: {msgid_text} -> {translated_text}")
