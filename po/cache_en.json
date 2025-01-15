@@ -291,8 +291,6 @@
   "请先安装 Xray": "Please install XRAY first",
   "请输入 0-65535 之间的值": "Please enter the value between 0-65535",
   "连接端口号": "Connect",
-  "请输入 ws inbound_port": "Please enter ws inbound_port",
-  "请输入 gRPC inbound_port": "Please enter GRPC Inbound_port",
   "此模式不支持修改 target": "This model does not support modifying target",
   "即将显示用户, 一次仅能显示一个": "The user is about to be displayed, only one can be displayed at a time",
   "请选择 显示用户使用的协议 ws/gRPC": "Please select the protocol WS/GRPC that the user uses",
@@ -364,7 +362,6 @@
   "无需测试": "No test",
   "未运行": "Not running",
   "无法连通": "Unable to connect",
-  "选择语言 / Select Language / انتخاب زبان / Выберите язык": "Choose Language / Select Language / انتخاب زبان / выберите язык",
   "请输入数字": "Please enter the number",
   "版本未知": "Unknown version",
   "请输入 1 到 4 之间的有效数字": "Please enter the valid number between 1 and 4",
@@ -390,7 +387,7 @@
   "版本": "Version",
   "当前语言": "Current language",
   "可以使用": "Be available",
-  "脚本": "script",
+  "脚本": "Script",
   "BUG 来源于自动清理日志错误的设置": "BUG comes from the setting of the error of automatic cleaning log",
   "运行状态": "Running status",
   "检测存在到 BUG !": "The detection exists to bug!",
@@ -510,7 +507,7 @@
   "存在新版本, 但版本跨度较大, 可能存在不兼容情况, 是否更新": "There are new versions, but the version span is large, and there may be incompatibility. Whether it is updated",
   "设置 Fail2ban 防暴力破解": "Set Fail2BAN anti -violence cracking",
   "错误信息": "error message",
-  "Jail": "Jail",
   "跳过更新": "Skip the update",
-  "用法:": "usage:"
+  "用法:": "usage:",
+  "版本文件更新失败": "Edition file update failed"
 }

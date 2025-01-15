@@ -26,6 +26,8 @@ jobs:
           access_token: ${{ github.token }}
       
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
       
       - name: Restore translation cache
         id: cache-translations
@@ -41,7 +43,15 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gettext python3 python3-pip
           pip3 install googletrans-py langdetect
-      
+
+      - name: Cache Python dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-googletrans-py-langdetect
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: Setup directories
         run: |
           mkdir -p po
@@ -66,12 +76,9 @@ jobs:
       
       - name: Update/Create PO files
         run: |
+          rm -f po/*.po
           for lang in zh_CN en fa ru; do
-            if [ ! -f po/$lang.po ]; then
-              msginit --no-translator --locale=$lang --input=po/xray_install.pot --output=po/$lang.po
-            else
-              msgmerge --update --backup=none po/$lang.po po/xray_install.pot
-            fi
+            msginit --no-translator --locale=$lang --input=po/xray_install.pot --output=po/$lang.po
           done
       
       - name: Auto translate
@@ -79,8 +86,9 @@ jobs:
       
       - name: Compile MO files
         run: |
+          #cat po/en.po
           for lang in zh_CN en fa ru; do
-            msgfmt -o languages/${lang}/LC_MESSAGES/xray_install.mo po/${lang}.po
+            msgfmt --check -v --statistics -o languages/${lang}/LC_MESSAGES/xray_install.mo po/${lang}.po
           done
       
       - name: Create version file
