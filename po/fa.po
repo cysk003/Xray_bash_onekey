@@ -1234,7 +1234,7 @@ msgstr "لطفاً WS inbound_port را وارد کنید"
 
 #: install.sh:2542 install.sh:2553 install.sh:2568 install.sh:2579
 msgid "ws inbound_port"
-msgstr ""
+msgstr "ws inbound_port"
 
 #: install.sh:2544 install.sh:2550 install.sh:2570 install.sh:2576
 msgid "请输入 gRPC inbound_port"
@@ -1242,7 +1242,7 @@ msgstr "لطفا GRPC inbound_port را وارد کنید"
 
 #: install.sh:2547 install.sh:2554 install.sh:2573 install.sh:2580
 msgid "gRPC inbound_port"
-msgstr ""
+msgstr "grpc inbound_port"
 
 #: install.sh:2614
 msgid "此模式不支持修改 target"
@@ -1922,7 +1922,7 @@ msgstr "زمان ممنوعیت باید بین 1 تا 86.40000 ثانیه با�
 
 #: fail2ban_manager.sh:142
 msgid "Jail"
-msgstr ""
+msgstr "زندان"
 
 #: fail2ban_manager.sh:142
 msgid "已存在"
