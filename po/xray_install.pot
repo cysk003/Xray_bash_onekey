@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xray_install 1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/hello-yunshu/Xray_bash_onekey/"
 "issues\n"
-"POT-Creation-Date: 2025-01-17 14:39+0000\n"
+"POT-Creation-Date: 2025-01-17 14:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -127,8 +127,8 @@ msgstr ""
 msgid "在线版本检测失败, 请稍后再试!"
 msgstr ""
 
-#: install.sh:340 install.sh:348 install.sh:3535 install.sh:3536
-#: install.sh:3537 fail2ban_manager.sh:11 fail2ban_manager.sh:38
+#: install.sh:340 install.sh:348 install.sh:3539 install.sh:3540
+#: install.sh:3541 fail2ban_manager.sh:11 fail2ban_manager.sh:38
 msgid "安装"
 msgstr ""
 
@@ -530,7 +530,7 @@ msgid "即将升级"
 msgstr ""
 
 #: install.sh:1138 install.sh:1145 install.sh:1152 install.sh:1335
-#: install.sh:3526 install.sh:3527 install.sh:3528
+#: install.sh:3530 install.sh:3531 install.sh:3532
 msgid "升级"
 msgstr ""
 
@@ -974,9 +974,9 @@ msgstr ""
 msgid "是否需要设置自动清理日志"
 msgstr ""
 
-#: install.sh:2087 install.sh:3583 install.sh:3592 install.sh:3644
-#: install.sh:3650 install.sh:3686 install.sh:3692 install.sh:3698
-#: install.sh:3727 install.sh:3754 install.sh:3761 install.sh:3766
+#: install.sh:2087 install.sh:3587 install.sh:3596 install.sh:3648
+#: install.sh:3654 install.sh:3690 install.sh:3696 install.sh:3702
+#: install.sh:3731 install.sh:3758 install.sh:3765 install.sh:3770
 #: fail2ban_manager.sh:159 fail2ban_manager.sh:172 fail2ban_manager.sh:181
 #: fail2ban_manager.sh:189
 msgid "清空屏幕!"
@@ -1467,13 +1467,13 @@ msgstr ""
 msgid "显示帮助"
 msgstr ""
 
-#: install.sh:3302 install.sh:3313 install.sh:3560
+#: install.sh:3302 install.sh:3313 install.sh:3564
 msgid "更新"
 msgstr ""
 
-#: install.sh:3303 install.sh:3306 install.sh:3310 install.sh:3539
-#: install.sh:3540 install.sh:3541 install.sh:3542 install.sh:3543
-#: install.sh:3544
+#: install.sh:3303 install.sh:3306 install.sh:3310 install.sh:3543
+#: install.sh:3544 install.sh:3545 install.sh:3546 install.sh:3547
+#: install.sh:3548
 msgid "变更"
 msgstr ""
 
@@ -1497,7 +1497,7 @@ msgstr ""
 msgid "升级脚本"
 msgstr ""
 
-#: install.sh:3310 install.sh:3539
+#: install.sh:3310 install.sh:3543
 msgid "映射字符串"
 msgstr ""
 
@@ -1577,265 +1577,265 @@ msgstr ""
 msgid "请输入 1 到 4 之间的有效数字"
 msgstr ""
 
-#: install.sh:3476
+#: install.sh:3478
 msgid "无效的选择"
 msgstr ""
 
-#: install.sh:3491
+#: install.sh:3495
 msgid "检测存在到 BUG !"
 msgstr ""
 
-#: install.sh:3492
+#: install.sh:3496
 msgid "BUG 来源于自动清理日志错误的设置"
 msgstr ""
 
-#: install.sh:3493
+#: install.sh:3497
 msgid "开始修复.."
 msgstr ""
 
-#: install.sh:3497
+#: install.sh:3501
 msgid "错误的配置文件删除"
 msgstr ""
 
-#: install.sh:3498
+#: install.sh:3502
 msgid "即将重新设置自动清理日志.."
 msgstr ""
 
-#: install.sh:3506
+#: install.sh:3510
 msgid "安装管理脚本"
 msgstr ""
 
-#: install.sh:3507
+#: install.sh:3511
 msgid "作者"
 msgstr ""
 
-#: install.sh:3508
+#: install.sh:3512
 msgid "修改"
 msgstr ""
 
-#: install.sh:3511
+#: install.sh:3515
 msgid "当前模式"
 msgstr ""
 
-#: install.sh:3512
+#: install.sh:3516
 msgid "当前语言"
 msgstr ""
 
-#: install.sh:3515
+#: install.sh:3519
 msgid "可以使用"
 msgstr ""
 
-#: install.sh:3515
+#: install.sh:3519
 msgid "命令管理脚本"
 msgstr ""
 
-#: install.sh:3517
+#: install.sh:3521
 msgid "版本检测"
 msgstr ""
 
-#: install.sh:3518 install.sh:3526 install.sh:3570
+#: install.sh:3522 install.sh:3530 install.sh:3574
 msgid "脚本"
 msgstr ""
 
-#: install.sh:3521
+#: install.sh:3525
 msgid "运行状态"
 msgstr ""
 
-#: install.sh:3524
+#: install.sh:3528
 msgid "连通性"
 msgstr ""
 
-#: install.sh:3525
+#: install.sh:3529
 msgid "升级向导"
 msgstr ""
 
-#: install.sh:3534
+#: install.sh:3538
 msgid "安装向导"
 msgstr ""
 
-#: install.sh:3538
+#: install.sh:3542
 msgid "配置变更"
 msgstr ""
 
-#: install.sh:3542
+#: install.sh:3546
 msgid "版本"
 msgstr ""
 
-#: install.sh:3543
+#: install.sh:3547
 msgid "负载均衡配置"
 msgstr ""
 
-#: install.sh:3544 install.sh:3563 fail2ban_manager.sh:76
+#: install.sh:3548 install.sh:3567 fail2ban_manager.sh:76
 msgid "配置"
 msgstr ""
 
-#: install.sh:3545
+#: install.sh:3549
 msgid "用户管理"
 msgstr ""
 
-#: install.sh:3546 install.sh:3550 install.sh:3551 install.sh:3552
-#: install.sh:3557 install.sh:3559 fail2ban_manager.sh:14
+#: install.sh:3550 install.sh:3554 install.sh:3555 install.sh:3556
+#: install.sh:3561 install.sh:3563 fail2ban_manager.sh:14
 msgid "查看"
 msgstr ""
 
-#: install.sh:3546 install.sh:3547 install.sh:3548
+#: install.sh:3550 install.sh:3551 install.sh:3552
 msgid "用户"
 msgstr ""
 
-#: install.sh:3547
+#: install.sh:3551
 msgid "添加"
 msgstr ""
 
-#: install.sh:3548
+#: install.sh:3552
 msgid "删除"
 msgstr ""
 
-#: install.sh:3549
+#: install.sh:3553
 msgid "查看信息"
 msgstr ""
 
-#: install.sh:3550
+#: install.sh:3554
 msgid "实时访问日志"
 msgstr ""
 
-#: install.sh:3551
+#: install.sh:3555
 msgid "实时错误日志"
 msgstr ""
 
-#: install.sh:3552
+#: install.sh:3556
 msgid "配置信息"
 msgstr ""
 
-#: install.sh:3553
+#: install.sh:3557
 msgid "服务相关"
 msgstr ""
 
-#: install.sh:3554 fail2ban_manager.sh:99 fail2ban_manager.sh:188
+#: install.sh:3558 fail2ban_manager.sh:99 fail2ban_manager.sh:188
 msgid "重启"
 msgstr ""
 
-#: install.sh:3554 install.sh:3555 install.sh:3556 install.sh:3557
+#: install.sh:3558 install.sh:3559 install.sh:3560 install.sh:3561
 msgid "所有服务"
 msgstr ""
 
-#: install.sh:3555 fail2ban_manager.sh:98 fail2ban_manager.sh:158
+#: install.sh:3559 fail2ban_manager.sh:98 fail2ban_manager.sh:158
 msgid "启动"
 msgstr ""
 
-#: install.sh:3556 fail2ban_manager.sh:100
+#: install.sh:3560 fail2ban_manager.sh:100
 msgid "停止"
 msgstr ""
 
-#: install.sh:3558
+#: install.sh:3562
 msgid "证书相关"
 msgstr ""
 
-#: install.sh:3559
+#: install.sh:3563
 msgid "证书状态"
 msgstr ""
 
-#: install.sh:3560
+#: install.sh:3564
 msgid "证书有效期"
 msgstr ""
 
-#: install.sh:3561 install.sh:3564 install.sh:3565 install.sh:3566
+#: install.sh:3565 install.sh:3568 install.sh:3569 install.sh:3570
 msgid "设置"
 msgstr ""
 
-#: install.sh:3561
+#: install.sh:3565
 msgid "证书自动更新"
 msgstr ""
 
-#: install.sh:3562
+#: install.sh:3566
 msgid "其他选项"
 msgstr ""
 
-#: install.sh:3563
+#: install.sh:3567
 msgid "自动更新"
 msgstr ""
 
-#: install.sh:3564
+#: install.sh:3568
 msgid "加速"
 msgstr ""
 
-#: install.sh:3565
+#: install.sh:3569
 msgid "防暴力破解"
 msgstr ""
 
-#: install.sh:3566
+#: install.sh:3570
 msgid "流量统计"
 msgstr ""
 
-#: install.sh:3567
+#: install.sh:3571
 msgid "清除"
 msgstr ""
 
-#: install.sh:3567
+#: install.sh:3571
 msgid "日志文件"
 msgstr ""
 
-#: install.sh:3568
+#: install.sh:3572
 msgid "测试"
 msgstr ""
 
-#: install.sh:3568
+#: install.sh:3572
 msgid "服务器网速"
 msgstr ""
 
-#: install.sh:3569
+#: install.sh:3573
 msgid "卸载向导"
 msgstr ""
 
-#: install.sh:3570 fail2ban_manager.sh:13 fail2ban_manager.sh:171
+#: install.sh:3574 fail2ban_manager.sh:13 fail2ban_manager.sh:171
 msgid "卸载"
 msgstr ""
 
-#: install.sh:3571
+#: install.sh:3575
 msgid "清空"
 msgstr ""
 
-#: install.sh:3571
+#: install.sh:3575
 msgid "证书文件"
 msgstr ""
 
-#: install.sh:3572 fail2ban_manager.sh:15 file_manager.sh:217
+#: install.sh:3576 fail2ban_manager.sh:15 file_manager.sh:217
 msgid "退出"
 msgstr ""
 
-#: install.sh:3575
+#: install.sh:3579
 msgid "请输入选项"
 msgstr ""
 
-#: install.sh:3575
+#: install.sh:3579
 msgid "请输入 0 到 34 之间的有效数字"
 msgstr ""
 
-#: install.sh:3590
+#: install.sh:3594
 msgid "开始升级!"
 msgstr ""
 
-#: install.sh:3624
+#: install.sh:3628
 msgid "变更 UUIDv5/映射字符串"
 msgstr ""
 
-#: install.sh:3629
+#: install.sh:3633
 msgid "变更 port"
 msgstr ""
 
-#: install.sh:3634
+#: install.sh:3638
 msgid "变更 target"
 msgstr ""
 
-#: install.sh:3639
+#: install.sh:3643
 msgid "变更 TLS 版本"
 msgstr ""
 
-#: install.sh:3656 install.sh:3661 install.sh:3666 install.sh:3711
-#: install.sh:3716 install.sh:3721 install.sh:3741
+#: install.sh:3660 install.sh:3665 install.sh:3670 install.sh:3715
+#: install.sh:3720 install.sh:3725 install.sh:3745
 msgid "回到菜单!"
 msgstr ""
 
-#: install.sh:3776
+#: install.sh:3780
 msgid "请输入正确的数字!"
 msgstr ""
 
