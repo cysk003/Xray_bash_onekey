@@ -3462,6 +3462,8 @@ set_language() {
     case $lang_choice in
         1)
             export LANG=zh_CN.UTF-8
+            rm -f "${idleleo_dir}/language.conf"
+            rm -rf "${idleleo_dir}/languages"
             ;;
         2)
             export LANG=en_US.UTF-8
@@ -3478,7 +3480,9 @@ set_language() {
             ;;
     esac
     
-    echo "LANG=$LANG" > "${idleleo_dir}/language.conf"
+    if [ "$lang_choice" -ne 1 ]; then
+        echo "LANG=$LANG" > "${idleleo_dir}/language.conf"
+    fi
     
     source "$idleleo"
 }
