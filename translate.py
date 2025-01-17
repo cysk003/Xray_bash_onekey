@@ -14,9 +14,35 @@ def save_translation_cache(cache_file, translations):
     with open(cache_file, 'w', encoding='utf-8') as f:
         json.dump(translations, f, ensure_ascii=False, indent=2)
 
+def get_version(version_file):
+    if os.path.exists(version_file):
+        with open(version_file, 'r', encoding='utf-8') as f:
+            return f.read().strip()
+    return None
+
+def update_version(version_file):
+    timestamp = str(int(time.time()))
+    with open(version_file, 'w', encoding='utf-8') as f:
+        f.write(timestamp)
+    return timestamp
+
 def translate_po_file(input_file, output_file, target_lang):
-    cache_file = f'po/cache_{target_lang}.json'
+    # 获取目标语言目录
+    lang_dir = os.path.dirname(output_file)
+    
+    # 构建 LC_MESSAGES 目录路径
+    lc_messages_dir = os.path.join('languages', target_lang, 'LC_MESSAGES')
+    
+    # 确保 LC_MESSAGES 目录存在
+    if not os.path.exists(lc_messages_dir):
+        os.makedirs(lc_messages_dir)
+    
+    # 构建缓存文件和版本文件的路径
+    cache_file = os.path.join(lang_dir, f'cache_{target_lang}.json')
+    version_file = os.path.join(lc_messages_dir, 'version')
+    
     translations = load_translation_cache(cache_file)
+    current_version = get_version(version_file)
     
     # 使用最新的 Translator，并设置更可靠的服务 URL
     translator = Translator(service_urls=['translate.google.com'])
@@ -105,6 +131,8 @@ def translate_po_file(input_file, output_file, target_lang):
 
     if updated:
         save_translation_cache(cache_file, translations)
+        new_version = update_version(version_file)
+        print(f"Updated version from {current_version} to {new_version}")
 
     # 确保每个 msgid 和 msgstr 之间没有多余的空格或换行符
     content = re.sub(r'\n\s*msgstr', '\nmsgstr', content)
@@ -115,4 +143,6 @@ def translate_po_file(input_file, output_file, target_lang):
 if __name__ == '__main__':
     for lang, code in [('en', 'en'), ('fa', 'fa'), ('ru', 'ru')]:
         print(f"\nTranslating to {lang}...")
-        translate_po_file(f'po/{lang}.po', f'po/{lang}.po', code)
+        input_file = f'po/{lang}.po'
+        output_file = f'po/{lang}.po'
+        translate_po_file(input_file, output_file, code)
