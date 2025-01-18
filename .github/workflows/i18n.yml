@@ -42,13 +42,13 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y gettext python3 python3-pip
-          pip3 install googletrans-py langdetect
+          pip3 install googletrans-py langdetect i18nspector
 
       - name: Cache Python dependencies
         uses: actions/cache@v3
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-googletrans-py-langdetect
+          key: ${{ runner.os }}-pip-googletrans-py-langdetect-i18nspector
           restore-keys: |
             ${{ runner.os }}-pip-
 
@@ -91,12 +91,15 @@ jobs:
             msgfmt --check -v --statistics -o languages/${lang}/LC_MESSAGES/xray_install.mo po/${lang}.po
           done
       
-      # - name: Create version file
-      #   run: |
-      #     TIMESTAMP=$(date +%s)
-      #     for lang in zh_CN en fa ru; do
-      #       echo "$TIMESTAMP" > languages/${lang}/LC_MESSAGES/version
-      #     done
+      - name: Run i18nspector checks on PO files
+        run: |
+          i18nspector check po/
+      
+      - name: Run i18nspector checks on MO files
+        run: |
+          for lang in zh_CN en fa ru; do
+            i18nspector check-binary languages/${lang}/LC_MESSAGES/xray_install.mo
+          done
       
       - name: Save translation cache
         if: always()
