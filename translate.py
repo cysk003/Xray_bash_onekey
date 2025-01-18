@@ -7,10 +7,20 @@ from googletrans import Translator
 def load_translation_cache(cache_file):
     if os.path.exists(cache_file):
         with open(cache_file, 'r', encoding='utf-8') as f:
-            return json.load(f)
+            translations = json.load(f)
+        
+        # 将缓存中的所有翻译结果首字母转为小写
+        for key in translations:
+            translations[key] = translations[key].capitalize().lower()
+        
+        return translations
     return {}
 
 def save_translation_cache(cache_file, translations):
+    # 在保存缓存前确保所有翻译结果首字母转为小写
+    for key in translations:
+        translations[key] = translations[key].capitalize().lower()
+    
     with open(cache_file, 'w', encoding='utf-8') as f:
         json.dump(translations, f, ensure_ascii=False, indent=2)
 
@@ -88,6 +98,9 @@ def translate_po_file(input_file, output_file, target_lang):
                     # 确保源语言和目标语言设置正确
                     translation = translator.translate(msgid_text, src='auto', dest=target_lang)
                     translated_text = translation.text
+                    
+                    # 强制将翻译结果的首字母转为小写
+                    translated_text = translated_text.capitalize().lower()
                     
                     # 检查翻译是否有变更
                     if msgid_text in translations and translations[msgid_text] != translated_text:
